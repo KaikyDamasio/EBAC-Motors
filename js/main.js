@@ -53,16 +53,6 @@ $(document).ready(function(){
                 mensagem:'Por favor insira a mensagem',
                 data:'Por favor insira a data de hoje',
         },
-        submitHandler: function(form){
-            console.log(form)
-            
-        },
-        invalidHandler: function(evente, validador){
-            let camposIncorretos = validador.numberOfInvalids();
-            if(camposIncorretos){
-                alert(`Existem ${camposIncorretos} campos incorretos`)
-            }
-        }
     })        
       
     $('.lista_sem_placa button ').click(function(){
@@ -75,13 +65,12 @@ $(document).ready(function(){
 
         $('#placa').val('');
 
+        $("#ano_modelo").val('');
 
         $('html').animate({
             scrollTop: destino.offset().top
         },1000)
-        
-        
-
+    
     })
 
     $('.lista_placa button').click(function(){
@@ -93,6 +82,12 @@ $(document).ready(function(){
         //inserindo número da placa ao input//
         const numero_placa = $(this).parent().find('.placa_veiculo').text();
         $('#placa').val(numero_placa);
+
+        //inserindo o ano as listas que tem placa/ano dos carros//
+
+        const ano_modelo = $(this).parent().find('.ano_veiculo').text();
+        $('#ano_modelo').val(ano_modelo);
+
 
         $('html').animate({
             scrollTop: destino_placa.offset().top
